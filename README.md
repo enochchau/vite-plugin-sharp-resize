@@ -1,6 +1,7 @@
 # Vite Plugin Sharp Resize
 
-Resize images with Vite during bundle time.
+Resize images with [Vite](https://vitejs.dev/) and
+[Sharp](https://sharp.pixelplumbing.com/).
 
 ## Usage
 
