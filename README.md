@@ -70,6 +70,6 @@ Compute height based on a given aspect ratio.
 
 ```js
 const width = 400; // px
-const heigth = getAspectWidth(width, 4:3);
+const height = getAspectWidth(width, 4:3);
 // height = 300
 ```
