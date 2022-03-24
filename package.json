@@ -26,8 +26,11 @@
     "fmt": "prettier --write src/",
     "build": "tsc",
     "postinstall": "husky install",
-    "prepublishOnly": "pinst --disable",
-    "postpublish": "pinst --enable"
+    "prepublish": "pinst --disable && yarn lint && yarn build",
+    "postpublish": "pinst --enable",
+    "test": "vite",
+    "test:build": "vite build",
+    "test:preview": "vite preview"
   },
   "dependencies": {
     "@rollup/pluginutils": "^4.2.0",

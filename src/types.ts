@@ -1,9 +1,11 @@
+import { FilterPattern } from "@rollup/pluginutils";
 import {
   AvifOptions,
   GifOptions,
   HeifOptions,
   JpegOptions,
   PngOptions,
+  ResizeOptions,
   TiffOptions,
   WebpOptions,
 } from "sharp";
@@ -11,6 +13,9 @@ import {
 export type AspectRatioStr = `${number}${":" | "/"}${number}`;
 export type AspectRatio = { w: number; h: number };
 
+/**
+ * output file type and options
+ */
 export type OutputFiletype =
   | {
       type: "webp";
@@ -40,3 +45,14 @@ export type OutputFiletype =
       type: "png";
       options?: PngOptions;
     };
+
+/**
+ * plugin options
+ */
+export interface Options {
+  include?: FilterPattern;
+  exclude?: FilterPattern;
+  resize: ResizeOptions;
+  withMetadata?: boolean;
+  outputFileType?: OutputFiletype;
+}

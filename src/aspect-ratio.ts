@@ -1,3 +1,4 @@
+// aspect ratio helpers
 import { AspectRatio, AspectRatioStr } from "./types";
 
 export function parseAspectRatio(aspectRatio: AspectRatioStr): AspectRatio {

@@ -1,26 +1,19 @@
-import { createFilter, FilterPattern } from "@rollup/pluginutils";
+import { createFilter } from "@rollup/pluginutils";
 import MagicString from "magic-string";
 import { basename, extname, join } from "path";
-import sharp, { ResizeOptions, Sharp } from "sharp";
+import sharp, { Sharp } from "sharp";
 import { Plugin, ResolvedConfig } from "vite";
 
-import { OutputFiletype } from "./types";
+import { Options } from "./types";
 
-const idPrefix = "/@sharp-resize";
+const ID_PREFIX = "/@sharp-resize";
 
 interface GeneratedImage {
   image: Sharp;
   extension: string;
 }
 
-interface Options {
-  include?: FilterPattern;
-  exclude?: FilterPattern;
-  resize: ResizeOptions;
-  withMetadata?: boolean;
-  outputFileType?: OutputFiletype;
-}
-export default function (options: Options): Plugin {
+export function pluginSharp(options: Options): Plugin {
   options.include =
     options.include ?? "**/*.{heic,heif,avif,jpeg,jpg,png,tiff,webp,gif}";
   const filter = createFilter(options.include, options.exclude);
@@ -62,15 +55,15 @@ export default function (options: Options): Plugin {
 
         outputId = `__VITE_IMAGE_ASSET__${fileHandle}__`;
       } else {
-        outputId = join(idPrefix, id);
+        outputId = join(ID_PREFIX, id);
       }
 
       return `export default ${JSON.stringify(outputId)}`;
     },
     configureServer(server) {
       server.middlewares.use(async ({ url }, res, next) => {
-        if (url?.startsWith(idPrefix)) {
-          const [, id] = url.split(idPrefix);
+        if (url?.startsWith(ID_PREFIX)) {
+          const [, id] = url.split(ID_PREFIX);
 
           // serve image from dev server
           const imageData = generatedImages.get(id);
