@@ -2,6 +2,7 @@
   "name": "vite-plugin-sharp-resize",
   "version": "0.0.0",
   "main": "dist/index.js",
+  "files": ["dist/**/*"],
   "license": "MIT",
   "devDependencies": {
     "@types/sharp": "^0",
@@ -23,5 +24,10 @@
     "sharp": "^0.30.3",
     "vite": "^2.8.6"
   },
-  "keywords": ["vite-plugin", "sharp", "resize"]
+  "keywords": ["vite-plugin", "sharp", "resize"],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ec965/vite-plugin-sharp-resize.git"
+  },
+  "homepage": "https://github.com/ec965/vite-plugin-sharp-resize#readme"
 }
