@@ -10,7 +10,7 @@ import {
   WebpOptions,
 } from "sharp";
 
-export type AspectRatioStr = `${number}${":" | "/"}${number}`;
+export type AspectRatioStr = `${number}:${number}`;
 export type AspectRatio = { w: number; h: number };
 
 /**

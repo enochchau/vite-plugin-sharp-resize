@@ -1,7 +1,12 @@
 // aspect ratio helpers
 import { AspectRatio, AspectRatioStr } from "./types";
 
-export function parseAspectRatio(aspectRatio: AspectRatioStr): AspectRatio {
+/**
+ * parse aspect ratio string
+ * @param aspectRatio
+ * @returns aspect ratio object
+ */
+function parseAspectRatio(aspectRatio: AspectRatioStr): AspectRatio {
   const [arW, arH] = aspectRatio.split(":");
   const w = parseInt(arW);
   const h = parseInt(arH);

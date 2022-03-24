@@ -30,7 +30,9 @@
     "postpublish": "pinst --enable",
     "test": "vite",
     "test:build": "vite build",
-    "test:preview": "vite preview"
+    "test:preview": "vite preview",
+    "test:clean": "rm -r dist_test",
+    "clean": "rm -r dist"
   },
   "dependencies": {
     "@rollup/pluginutils": "^4.2.0",
