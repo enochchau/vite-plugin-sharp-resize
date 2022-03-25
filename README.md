@@ -1,5 +1,7 @@
 # Vite Plugin Sharp Resize
 
+![ci workflow status](https://github.com/ec965/vite-plugin-sharp-resize/actions/workflows/ci.yml/badge.svg)
+
 Resize images with [Vite](https://vitejs.dev/) and
 [Sharp](https://sharp.pixelplumbing.com/).
 
