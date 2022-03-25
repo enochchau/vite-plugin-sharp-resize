@@ -14,9 +14,6 @@
     "eslint": "^8.11.0",
     "eslint-plugin-simple-import-sort": "^7.0.0",
     "eslint-plugin-unused-imports": "^2.0.0",
-    "husky": ">=6",
-    "lint-staged": ">=10",
-    "pinst": ">=2",
     "prettier": "^2.6.0",
     "typescript": "^4.6.2"
   },
@@ -25,9 +22,7 @@
     "lint": "eslint src/",
     "fmt": "prettier --write src/",
     "build": "tsc",
-    "postinstall": "husky install",
-    "prepublish": "pinst --disable && yarn lint && yarn build",
-    "postpublish": "pinst --enable",
+    "prepublish": "yarn lint && yarn build",
     "test": "vite",
     "test:build": "vite build",
     "test:preview": "vite preview",
@@ -53,9 +48,5 @@
   "bugs": {
     "url": "https://github.com/ec965/vite-plugin-sharp-resize/issues"
   },
-  "author": "Enoch Chau (http://enochchau.com)",
-  "lint-staged": {
-    "*.{js,ts}": "eslint --cache --fix",
-    "*.{js,css,ts,md}": "prettier --write"
-  }
+  "author": "Enoch Chau (http://enochchau.com)"
 }
