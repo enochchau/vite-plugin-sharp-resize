@@ -5,6 +5,16 @@
 Resize images with [Vite](https://vitejs.dev/) and
 [Sharp](https://sharp.pixelplumbing.com/).
 
+## Installation
+
+```
+yarn add -D vite-plugin-sharp-resize
+```
+
+```
+npm install -D vite-plugin-sharp-resize
+```
+
 ## Usage
 
 ```js
