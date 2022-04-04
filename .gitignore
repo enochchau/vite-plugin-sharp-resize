@@ -1,6 +1,12 @@
 node_modules
 dist
 dist_test
-.yarn/unplugged
-.yarn/build-state.yml
 .eslintcache
+
+.pnp.*
+.yarn/*
+!.yarn/patches
+!.yarn/plugins
+!.yarn/releases
+!.yarn/sdks
+!.yarn/versions
