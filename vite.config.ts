@@ -10,7 +10,10 @@ export default defineConfig({
         height: 200,
       },
       outputFileType: {
-        type: "webp",
+        type: "jpg",
+        options: {
+          quality: 1,
+        },
       },
     }),
   ],

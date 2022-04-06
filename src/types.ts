@@ -22,7 +22,7 @@ export type OutputFiletype =
       options?: WebpOptions;
     }
   | {
-      type: "jpeg" | "jpg";
+      type: "jpeg";
       options?: JpegOptions;
     }
   | {

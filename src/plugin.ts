@@ -1,6 +1,6 @@
 import { createFilter } from "@rollup/pluginutils";
 import MagicString from "magic-string";
-import { basename, extname, join } from "path";
+import path from "path";
 import sharp, { Sharp } from "sharp";
 import { Plugin, ResolvedConfig } from "vite";
 
@@ -34,10 +34,13 @@ export function pluginSharp(options: Options): Plugin {
       // run sharp
       let image = sharp(id).resize(options.resize);
       if (options.withMetadata) image = image.withMetadata();
-      if (options.outputFileType?.type === "webp") {
-        image = image.webp(options.outputFileType.options);
+      if (options.outputFileType?.type) {
+        image = image[options.outputFileType.type](
+          // @ts-ignore
+          options.outputFileType.options
+        );
       }
-      const extension = options.outputFileType?.type ?? extname(id);
+      const extension = options.outputFileType?.type ?? path.extname(id);
 
       // cache image in map for dev server
       generatedImages.set(id, {
@@ -48,14 +51,14 @@ export function pluginSharp(options: Options): Plugin {
       let outputId: string;
       if (!this.meta.watchMode) {
         const fileHandle = this.emitFile({
-          name: `${basename(id)}.${extension}`,
+          name: `${path.basename(id)}.${extension}`,
           source: await image.toBuffer(),
           type: "asset",
         });
 
         outputId = `__VITE_IMAGE_ASSET__${fileHandle}__`;
       } else {
-        outputId = join(ID_PREFIX, id);
+        outputId = path.join(ID_PREFIX, id);
       }
 
       return `export default ${JSON.stringify(outputId)}`;
