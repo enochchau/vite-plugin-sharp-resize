@@ -1,6 +1,6 @@
 import { defineConfig } from "vite";
 
-import { pluginSharp } from "./src";
+import { pluginSharp } from "./dist/index";
 
 export default defineConfig({
   plugins: [
